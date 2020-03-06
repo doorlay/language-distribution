@@ -12,15 +12,32 @@ def get_word_frequencies(filename):
     If file does not exist, raise FileNotFoundError"""
 
     hsh = HashTable(191)
+    line_count = 0
     try:
-        f = open(filename, "r")
+        with open(filename, 'r') as f:
+            for line in f:
+                line_count += 1
+            f.close()
     except:
         raise FileNotFoundError
+    f = open(filename, "r")
+    line_number = 0
     for line in f:
+        line_number += 1
         new_word = ""
+        character_count = len(line)
+        character_number = 0
         for character in line:
+            character_number += 1
             if (ord(character) >= 65 and ord(character) <= 90) or (ord(character) >= 97 and ord(character) <= 122):
                 new_word += character
+                if line_number == line_count:
+                    if character_count == character_number:
+                        new_word = new_word.lower()
+                        if new_word != "":
+                            # i need to check here if the words are already in the table. Do I though?
+                            hsh.insert(new_word)
+                        new_word = ""
             elif ord(character) == 39:
                 pass
             else:
@@ -31,8 +48,13 @@ def get_word_frequencies(filename):
                 new_word = ""
     return hsh
 
-h = get_word_frequencies("lotr.txt")
-print('test')
+
+
+h = get_word_frequencies("preamble.txt")
+lst = h.hash_table
+for item in lst:
+    if item != None:
+        print(item)
 
 
 """
@@ -42,9 +64,6 @@ print('test')
 
 """
 
-# I'm going to keep a hash table of every word that appears, and using that hash table I'm going to map everything out and plot word frequency and such.
 
-# hash table has a key and a value. 
-
-# the key will be the word, the value will be the frequency of that word. They will be stored in tuple? Is that efficient? not really.
-# ex. ('cat', 14)
+# the end goal will be to use something like BeautifulSoup with python to scrape a bunch of data off of the web and then process it into an output here, checking
+# to see if Zipf's law applies. That would be a pretty cool project to finish.
