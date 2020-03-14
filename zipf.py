@@ -35,7 +35,6 @@ def get_word_frequencies(filename):
                     if character_count == character_number:
                         new_word = new_word.lower()
                         if new_word != "":
-                            # i need to check here if the words are already in the table. Do I though?
                             hsh.insert(new_word)
                         new_word = ""
             elif ord(character) == 39:
@@ -43,7 +42,6 @@ def get_word_frequencies(filename):
             else:
                 new_word = new_word.lower()
                 if new_word != "":
-                    # i need to check here if the words are already in the table. Do I though?
                     hsh.insert(new_word)
                 new_word = ""
     return hsh

@@ -5,8 +5,6 @@ class HashTable:
         self.hash_table = [None]*table_size
         self.num_items = 0 
 
-    # I believe I have fixed both of these insert functions to work with my new implementation, but I may be wrong.
-
     def insert(self, key):
         """ Inserts an entry into the hash table (using Horner hash function to determine index, 
         and quadratic probing to resolve collisions).
@@ -37,6 +35,7 @@ class HashTable:
             elif self.hash_table[hash_value][0] == key:
                 new_value = self.hash_table[hash_value][1] + 1
                 self.hash_table[hash_value] = (key, new_value)
+                break
             elif i == self.table_size:
                 break
             hash_value = original_hash_value + (i ** 2)
