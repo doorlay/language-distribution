@@ -71,6 +71,7 @@ def order_words(hash_table):
     lst_of_words.sort(key = lambda x: x[1],reverse=True)
     return lst_of_words
 
+
 def check_zipf(lst,output_file):
     """ 
 
@@ -90,6 +91,7 @@ def main():
         lst_of_words = order_words(create_frequency_table(input_file))
         check_zipf(lst_of_words,output_file)
 
+main()
 
 # the end goal will be to use something like BeautifulSoup with python to scrape a bunch of data off of the web and then process it into an output here, checking
 # to see if Zipf's law applies. That would be a pretty cool project to finish.
