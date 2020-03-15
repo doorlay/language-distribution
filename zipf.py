@@ -93,6 +93,7 @@ def main():
 
 # the end goal will be to use something like BeautifulSoup with python to scrape a bunch of data off of the web and then process it into an output here, checking
 # to see if Zipf's law applies. That would be a pretty cool project to finish.
+# I can implement this with flask and have it become a website. That would be pretty cool.
 
 """
 How do I want to output all of my data? An output file may be nice.
