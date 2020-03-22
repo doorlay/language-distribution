@@ -10,3 +10,4 @@ This program is going to be designed to count the frequency of words to check th
 Will be implemented using a HashTable
 the key will be the word, the value will be the frequency of that word. They will be stored in tuple
 ex. ('cat', 14)
+

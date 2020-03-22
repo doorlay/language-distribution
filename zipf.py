@@ -1,6 +1,4 @@
 from hash_table import *
-import string
-import sys
 
 def create_frequency_table(filename):
     """
@@ -71,36 +69,15 @@ def order_words(hash_table):
     lst_of_words.sort(key = lambda x: x[1],reverse=True)
     return lst_of_words
 
-
-def check_zipf(lst,output_file):
-    """ 
-
-    """
-    output_file = open(output_file, "w")
-    most_freq_word = lst[0]
-    for word in lst:
-        if word != most_freq_word: # to ensure that most frequent word is not compared to itself
-            pass
-
 def main():
-    if len(sys.argv) != 3:
-        print("Expected usage: zipf.py [inputfile.txt] [outputfile.txt]")
-    else:
-        input_file = open(sys.argv[1], "r")
-        output_file = open(sys.argv[2], "w")
-        lst_of_words = order_words(create_frequency_table(input_file))
-        check_zipf(lst_of_words,output_file)
+    input_file = "test.txt"
+    word_data = order_words(create_frequency_table(input_file))
+    print(word_data)
+    # I might need to change how this data is being stored to make for easier usage with R
+    # R does not like tuples, apparently. Find a different way to store my data
+    return word_data
 
 main()
 
-# the end goal will be to use something like BeautifulSoup with python to scrape a bunch of data off of the web and then process it into an output here, checking
-# to see if Zipf's law applies. That would be a pretty cool project to finish.
-# I can implement this with flask and have it become a website. That would be pretty cool.
-
-"""
-How do I want to output all of my data? An output file may be nice.
-
-How do I want to account for punctuation?
-What characters could be within a word that do not make it seperate. I suppose a dash can count something as one word.
-
-"""
+# End goal will be to use BeautifulSoup to scrape web data
+# Plot the words over a logarithmic curve using R
