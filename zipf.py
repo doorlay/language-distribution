@@ -72,12 +72,7 @@ def order_words(hash_table):
 def main():
     input_file = "test.txt"
     word_data = order_words(create_frequency_table(input_file))
-    print(word_data)
-    # I might need to change how this data is being stored to make for easier usage with R
-    # R does not like tuples, apparently. Find a different way to store my data
     return word_data
-
-main()
 
 # End goal will be to use BeautifulSoup to scrape web data
 # Plot the words over a logarithmic curve using R

@@ -20,7 +20,7 @@ class HashTable:
         while True:
             hash_value = hash_value % self.table_size
             if self.hash_table[hash_value] == None:
-                self.hash_table[hash_value] = (key, 1)
+                self.hash_table[hash_value] = [key, 1]
                 self.num_items += 1
                 load_factor = self.get_load_factor()
                 if load_factor > (1/2):
@@ -34,7 +34,7 @@ class HashTable:
                 break
             elif self.hash_table[hash_value][0] == key:
                 new_value = self.hash_table[hash_value][1] + 1
-                self.hash_table[hash_value] = (key, new_value)
+                self.hash_table[hash_value] = [key, new_value]
                 break
             elif i == self.table_size:
                 break
@@ -54,7 +54,7 @@ class HashTable:
             elif self.hash_table[hash_value][0] == item[0]:
                 new_value = self.hash_table[hash_value][1] + 1
                 new_key = item[0]
-                item = (new_key, new_value)
+                item = [new_key, new_value]
                 self.hash_table[hash_value] = item
             elif i == self.table_size:
                 break

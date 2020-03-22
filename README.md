@@ -7,7 +7,6 @@ It also shows up three times as much as the third most used word, continuing sai
 
 This program is going to be designed to count the frequency of words to check this in .txt documents.
 
-Will be implemented using a HashTable
-the key will be the word, the value will be the frequency of that word. They will be stored in tuple
-ex. ('cat', 14)
+The word frequency storage is implemented with a HashTable in Python.
 
+This Data is then fed into an R program that plots this data onto a Logarithmic Graph, checking how tightly the words map.

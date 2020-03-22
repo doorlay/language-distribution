@@ -2,9 +2,6 @@ library(reticulate)
 os <- import("os")
 os$listdir(".")
 
-# Assigns all of the python data to a variable
-words <- py_run_file("zipf.py")
-for (p in words)
-{
-    print(p)
-}
+source_python("zipf.py")
+python_nested_list <- main()
+# This nested list must be reassigned to some form of data that works better with R's graphing
