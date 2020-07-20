@@ -69,10 +69,31 @@ def order_words(hash_table):
     lst_of_words.sort(key = lambda x: x[1],reverse=True)
     return lst_of_words
 
+def mapN(in_file,out_file):
+    """
+    Given the frequency list, checks if the words map against zipf's law
+    
+    Parameters:
+    file_name - the name of the file to map
+
+    Returns:
+
+    """
+    word_data = order_words(create_frequency_table(in_file))
+    counter = 1
+    most_freq = word_data[0][1]
+    for tup in word_data:
+        expected = (most_freq / counter) // 1
+        percent_error = abs(expected - tup[1]) / most_freq * 100
+        out_file.write("{}\n - Expected: {}\n - Actual: {}\n - Percent Error: {}%\n".format(tup[0].capitalize(),int(expected),tup[1],round(percent_error,2)))
+        counter += 1
+
 def main():
-    input_file = "test.txt"
-    word_data = order_words(create_frequency_table(input_file))
-    return word_data
+    input_file = input("File name: ")
+    f = open("out.txt", "w")
+    mapN(input_file,f)
+    f.close()
+
+main()
 
 # End goal will be to use BeautifulSoup to scrape web data
-# Plot the words over a logarithmic curve using R
