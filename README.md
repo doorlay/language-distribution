@@ -10,3 +10,7 @@ This program is going to be designed to count the frequency of words to check th
 The word frequency storage is implemented with a HashTable in Python.
 
 This Data is then fed into an R program that plots this data onto a Logarithmic Graph, checking how tightly the words map.
+
+
+Dependencies:
+Python, R, "ggplot2", "reticulate", "tidyverse"
